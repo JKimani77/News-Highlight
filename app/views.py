@@ -10,3 +10,11 @@ def index():
     '''
     title = 'NEWS'
     return render_template('index.html', title = title)
+
+@app.route('/newsatnine/<int:movie_id>')
+def allthenews(news_id):
+
+    '''
+    A view news page function that returns the news details page and its data
+    '''
+    return render_template('newsatnine.html',id = news_id)
