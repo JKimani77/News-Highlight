@@ -1,22 +1,9 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to The best NEWS HIGHLIGHT Website online </title>
-        {% endif %}
-    </head>
-    <body>
-       <!-- General News -->
-       <h3> General News </h3>
-       <ul>
-           {{ macro.displayNewsList(General)}}
-       </ul>
-
+<!-- Content block -->
+{% block content %}
+      
         <!-- Business News -->
         <h3> Business News </h3>
         <ul>
@@ -53,6 +40,7 @@
             {{ macro.displayNewsList(Health)}}
         </ul>
 
+        {% endblock%}
 
     </body>
 </html>

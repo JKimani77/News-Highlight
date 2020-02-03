@@ -9,7 +9,6 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    general_news = get_newssources('general')
     business_news = get_newssources('business')
     entertainment_news = get_newssources('entertainment')
     sports_news = get_newssources('sports')
@@ -18,7 +17,7 @@ def index():
     health_news = get_newssources('health')
 
     title = 'Home - Welcome to The best NEWS HIGHLIGHT Website online'
-    return render_template('index.html', title = title, General=general_news, Business=business_news,Entertainment=entertainment_news, Sports=sports_news, Technology=technology_news,Science=science_news, Health=health_news)
+    return render_template('index.html', title = title, Business=business_news,Entertainment=entertainment_news, Sports=sports_news, Technology=technology_news,Science=science_news, Health=health_news)
 
 @app.route('/newsatnine/<int:movie_id>')
 def allthenews(news_id):
