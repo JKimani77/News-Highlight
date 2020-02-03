@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_newssources
+from .request import get_newssources, get_newspaperarticles
 
 # Views
 @app.route('/')
@@ -21,7 +21,6 @@ def index():
 
 @app.route('/newsatnine/<int:movie_id>')
 def allthenews(news_id):
-
     '''
     A view news page function that returns the news details page and its data
     '''

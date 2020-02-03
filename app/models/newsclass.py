@@ -11,3 +11,17 @@ class News:
         self.category = category
         self.url = url
         self.country = country
+
+
+
+class Newsarticles:
+    '''
+    Article class that defines the article objects
+    '''
+
+    def __init__(self, author, title, description, url, urlToImage):
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
