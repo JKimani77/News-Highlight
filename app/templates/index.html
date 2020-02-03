@@ -1,3 +1,5 @@
+{% import 'macros.html' as macro%}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +11,48 @@
         {% endif %}
     </head>
     <body>
-       
+       <!-- General News -->
+       <h3> General News </h3>
+       <ul>
+           {{ macro.displayNewsList(General)}}
+       </ul>
+
+        <!-- Business News -->
+        <h3> Business News </h3>
+        <ul>
+            {{ macro.displayNewsList(Business)}}
+        </ul>
+
+         <!-- Entertainment News -->
+       <h3>  Entertainment </h3>
+       <ul>
+           {{ macro.displayNewsList(Entertainment)}}
+       </ul>
+
+        <!-- Sports News -->
+        <h3> Sports </h3>
+        <ul>
+            {{ macro.displayNewsList(Sports)}}
+        </ul>
+
+         <!-- Tech News -->
+       <h3> Technology </h3>
+       <ul>
+           {{ macro.displayNewsList(Technology)}}
+       </ul>
+
+        <!-- Science News -->
+        <h3> Science </h3>
+        <ul>
+            {{ macro.displayNewsList(Science)}}
+        </ul>
+
+        <!-- Health News -->
+        <h3> Health News</h3>
+        <ul>
+            {{ macro.displayNewsList(Health)}}
+        </ul>
+
+
     </body>
 </html>

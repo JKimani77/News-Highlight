@@ -45,9 +45,11 @@ def process_newsresults(source_list):
         description = source_item.get('description')
         title = source_item.get('title')
         category = source_item.get('category')
+        url = source_item.get('url')
+
 
         if url:
-            source_object = News(id, name, description, title, category)
-            source_results.append(source_object)
+             source_object = News(id,name, description, title, category,url)
+             source_results.append(source_object)
 
     return source_results
