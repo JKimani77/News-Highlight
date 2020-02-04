@@ -14,9 +14,10 @@ def index():
     sports_news = get_newssources('sports')
     technology_news = get_newssources('technology')
     health_news = get_newssources('health')
+    science_news = get_newssources('science')
 
     title = 'Home - Welcome to The best NEWS HIGHLIGHT Website online'
-    return render_template('index.html', title = title, Business=business_news,Entertainment=entertainment_news, Sports=sports_news, Technology=technology_news, Health=health_news)
+    return render_template('index.html', title = title, Business=business_news,Entertainment=entertainment_news, Sports=sports_news, Technology=technology_news, Health=health_news, Science=science_news)
 
 @app.route('/newsatnine/<news_id>')
 def allthenews(news_id):

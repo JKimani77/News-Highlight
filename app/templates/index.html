@@ -7,8 +7,9 @@
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
-<!-- Content block -->
 
+<div class="bodyy">
+<body>
 <!-- Content block -->
 {% block content %}
       
@@ -17,31 +18,31 @@
         <ul>
             {{ macro.displayNewsList(Business)}}
         </ul>
-
+<br>
          <!-- Entertainment News -->
        <h3>  Entertainment </h3>
        <ul>
            {{ macro.displayNewsList(Entertainment)}}
        </ul>
-
+<br>
         <!-- Sports News -->
         <h3> Sports </h3>
         <ul>
             {{ macro.displayNewsList(Sports)}}
         </ul>
-
+<br>
          <!-- Tech News -->
        <h3> Technology </h3>
        <ul>
            {{ macro.displayNewsList(Technology)}}
        </ul>
-
+<br>
         <!-- Science News -->
         <h3> Science </h3>
         <ul>
             {{ macro.displayNewsList(Science)}}
         </ul>
-
+<br>
         <!-- Health News -->
         <h3> Health News</h3>
         <ul>
@@ -51,4 +52,5 @@
         {% endblock%}
 
     </body>
+</div>
 </html>
