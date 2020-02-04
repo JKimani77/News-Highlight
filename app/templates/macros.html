@@ -1,7 +1,17 @@
-{% macro displayNewsList(source_list) %}
+{% macro displayNewsList(category) %}
 
-    {% for news in source_list %}
-        <li>{{ news.title}}</li>
-    {% endfor %}
+    {% for item in category %}
+        <li>{{ item.title}}</li>
+        <div class="card border-primary md-3 col-md-3">
+            <div class="card-header">{{item.name}}</div>
+            <div class="card-body">
+                <p class="card-text">{{item.description|truncate(150)}}
+                    <br>
+                    <a href="/newsatnine/{{category.id}}&40"><button type="button" class="btn btn-primary btn-sm">Read Articles</button></a></p>
+            </div>
+        </div>
+    
+    
+        {% endfor %}
 
 {% endmacro %}

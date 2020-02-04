@@ -57,8 +57,8 @@ def get_newssources(category):
 
         sources_results = None
 
-        if get_newssources_response['source']:
-            sources_results_list = get_newssources_response['source']
+        if get_newssources_response['sources']:
+            sources_results_list = get_newssources_response['sources']
             sources_results = process_newsresults(sources_results_list)
 
     return sources_results
@@ -83,11 +83,11 @@ def process_newspaperarticles(my_articles):
 
     return article_location_list
 
-def get_newspaperarticles(source_id, limit):
+def get_newspaperarticles(news_id, limit):
     '''
     Function that gets articles based on the source id
     '''
-    get_articlelocation_url = articles_url.format(source_id, limit, api_key)
+    get_articlelocation_url = articles_url.format(news_id, limit, api_key)
 
     with urllib.request.urlopen(get_articlelocation_url) as url:
         articles_location_data = url.read()

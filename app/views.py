@@ -19,9 +19,12 @@ def index():
     title = 'Home - Welcome to The best NEWS HIGHLIGHT Website online'
     return render_template('index.html', title = title, Business=business_news,Entertainment=entertainment_news, Sports=sports_news, Technology=technology_news,Science=science_news, Health=health_news)
 
-@app.route('/newsatnine/<int:movie_id>')
-def allthenews(news_id):
+@app.route('/newsatnine/<news_id><int:news_page>')
+def allthenews(news_id, each_page):
     '''
     A view news page function that returns the news details page and its data
     '''
-    return render_template('newsatnine.html',id = news_id)
+    #getting articles
+    news_article = get_newspaperarticles(news_id,each_page)
+    title = f'{news_id}'
+    return render_template('newsatnine.html',title = title, name = news_id,news = news_article )
