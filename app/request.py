@@ -49,7 +49,7 @@ def get_newssources(category):
     Function that gets the json response to our url request
     '''
     get_newssources_url = base_url.format(category, api_key)
-    print(get_newssources_url)
+    # print(get_newssources_url)
 
     with urllib.request.urlopen(get_newssources_url) as url:
         get_newssources_data = url.read()
@@ -62,6 +62,30 @@ def get_newssources(category):
             sources_results = process_newsresults(sources_results_list)
 
     return sources_results
+
+
+
+def get_newspaperarticles(news_id):
+    '''
+    Function that gets articles based on the source id
+    '''
+    get_articlelocation_url = articles_url.format(news_id, api_key)
+
+    print(get_articlelocation_url)
+
+    with urllib.request.urlopen(get_articlelocation_url) as url:
+        articles_location_data = url.read()
+        articles_location_response = json.loads(articles_location_data)
+
+        articles_location_results = None
+
+        if articles_location_response['articles']:
+            search_articles_list = articles_location_response['articles']
+            articles_location_results = process_newspaperarticles(search_articles_list)
+    
+        print(articles_location_results)
+
+    return articles_location_results
 
 
 def process_newspaperarticles(my_articles):
@@ -81,21 +105,5 @@ def process_newspaperarticles(my_articles):
             article_source_object = Newsarticles(author, title, description, url, urlToImage)
             article_location_list.append(article_source_object)
 
+    print(article_location_list)
     return article_location_list
-
-def get_newspaperarticles(news_id, limit):
-    '''
-    Function that gets articles based on the source id
-    '''
-    get_articlelocation_url = articles_url.format(news_id, limit, api_key)
-
-    with urllib.request.urlopen(get_articlelocation_url) as url:
-        articles_location_data = url.read()
-        articles_location_response = json.loads(articles_location_data)
-
-        articles_location_results = None
-
-        if articles_location_response['articles']:
-            articles_location_results = process_newspaperarticles(articles_location_response['articles'])
-
-    return articles_location_results

@@ -7,20 +7,20 @@
             <h1> {{name}} </h1>
         </div>
     </div>
+    hhghj
     <div class="row">
-        {% for article in news %}
+        {% for article in news_article %}
         <div class="col-sm-6">
             <div class="img-box mb-4">
                 <a href={{article.url}} target="_blank">
                     <img class="thumbnail img-el img-fluid" src={{article.urlToImage}} alt="IMAGE LOADING...">
                 </a>
             </div>
-            <div class="words">
+            <div class="newsandstuff">
                 <h4 class="text-bold"> {{article.title}} </h4>
                 <p>Posted by
                     <span class="text-muted date-author">{{article.author}}</span>
-                    on
-                    <span class="text-muted date-author">{{article.publishedAt}}</span>
+                   
                 </p>
                 <p> {{article.description}}...
                     <a href={{article.url}} target="_blank"><button type="button" class="btn btn-outline-primary">Go to site</button></a>
@@ -31,3 +31,4 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
