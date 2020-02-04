@@ -2,10 +2,9 @@
 
     {% for item in category %}
         <li>{{ item.title}}</li>
-        <div class="card border-primary md-3 col-md-3">
+        <div class="col-md-6">
             <div class="card-header">{{item.name}}</div>
             <div class="card-body">
-                <p class="card-text">{{item.description}}
                     <br>
                     <a href="/newsatnine/{{item.id}}"><button type="button" class="btn btn-primary btn-sm">Read Articles</button></a></p>
             </div>
