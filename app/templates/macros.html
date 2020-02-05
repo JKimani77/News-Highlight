@@ -1,16 +1,46 @@
-{% macro displayNewsList(category) %}
+{% extends 'bootstrap/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
 
-    {% for item in category %}
-        <li>{{ item.title}}</li>
-        <div class="col-md-6">
-            <div class="card-header">{{item.name}}</div>
-            <div class="card-body">
-                    <br>
-                    <a href="/newsatnine/{{item.id}}"><button type="button" class="btn btn-default">Read Articles</button></a></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Styles block -->
+
+    {% block styles%}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+
+</head>
+
+<body>
+    {% macro displayNewsList(category) %}
+    <div class="container">
+        <div class="row">
+            {% for item in category %}
+            <div class="col-md-6">
+                <div class="card-body">
+                    <li>{{ item.title | truncate(150)}}</li>
+                    <p class="card-header">{{item.name}}<br>
+                        <a href="/newsatnine/{{item.id}}"><button type="button" class="btn btn-light">Read
+                            Articles</button></a>
+                    </p>
+                </div>
             </div>
-        </div>
-    
-    
         {% endfor %}
+        </div>
 
-{% endmacro %}
+
+    </div>
+    </div>
+
+
+
+
+    {% endmacro %}
+</body>
+
+</html>
