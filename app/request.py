@@ -7,13 +7,16 @@ News = newsclass.News
 Newsarticles = newsclass.Newsarticles
 
 # Getting api key
-api_key = app.config['NEWS_API_KEY']
+api_key = None
+# Getting the movie base url
+base_url = None
+articles_url = None
 
-# Getting the news base url
-base_url = app.config["NEWS_API_BASE_URL"]
-
-#Getting the aticles source base url
-articles_url = app.config['ARTICLES_BASE_URL']
+def configure_request(app):
+    global api_key, base_url, base_url, articles_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config["NEWS_API_BASE_URL"]
+    articles_url = app.config['ARTICLES_BASE_URL']
 
 
 
